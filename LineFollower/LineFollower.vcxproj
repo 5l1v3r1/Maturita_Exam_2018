@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{e674532f-d96f-49d5-b590-cd3f83a3c371}</ProjectGuid>
+    <Keyword>Linux</Keyword>
+    <RootNamespace>LineFollower</RootNamespace>
+    <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
+    <ApplicationType>Linux</ApplicationType>
+    <ApplicationTypeRevision>1.0</ApplicationTypeRevision>
+    <TargetLinuxPlatform>Raspberry</TargetLinuxPlatform>
+    <LinuxProjectType>{8748239F-558C-44D1-944B-07B09C35B330}</LinuxProjectType>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Link>
+      <LibraryDependencies>wiringPi;pthread;m;mpg123;ao</LibraryDependencies>
+    </Link>
+    <RemotePostBuildEvent>
+      <Command>gpio export 8 out &amp;&amp; gpio export 7 out &amp;&amp; gpio export 1 out &amp;&amp; gpio export 12 in &amp;&amp; gpio export 16 out &amp;&amp; gpio export 25 out &amp;&amp; gpio export 21 out &amp;&amp; gpio export 20 out &amp;&amp; gpio edge 24 both &amp;&amp; gpio edge 23 both &amp;&amp; gpio edge 6 both &amp;&amp; gpio edge 5 both &amp;&amp; gpio edge 17 rising &amp;&amp; gpio export 19 in &amp;&amp; gpio export 13 in</Command>
+      <Message>
+      </Message>
+    </RemotePostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Link>
+      <LibraryDependencies>wiringPi</LibraryDependencies>
+    </Link>
+    <RemotePostBuildEvent>
+      <Command>gpio export 17 out</Command>
+      <Message>export pin 17 using the gpio utility so that we can execute the blink program without sudo</Message>
+    </RemotePostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="IMU.cpp" />
+    <ClCompile Include="LCD_I2C.cpp" />
+    <ClCompile Include="LineFollower.cpp" />
+    <ClCompile Include="MachineLearning\machine_learning.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Motors.cpp" />
+    <ClCompile Include="SoundCard.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IMU.h" />
+    <ClInclude Include="LCD_I2C.h" />
+    <ClInclude Include="LineFollower.h" />
+    <ClInclude Include="MachineLearning\machine_learning.hpp" />
+    <ClInclude Include="Motors.h" />
+    <ClInclude Include="SoundCard.h" />
+  </ItemGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <CppLanguageStandard>c++1y</CppLanguageStandard>
+      <RelaxIEEE>true</RelaxIEEE>
+    </ClCompile>
+    <Link>
+      <PrintMap>false</PrintMap>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

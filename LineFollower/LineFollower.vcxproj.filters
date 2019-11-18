@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="IMU.cpp" />
+    <ClCompile Include="LCD_I2C.cpp" />
+    <ClCompile Include="LineFollower.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Motors.cpp" />
+    <ClCompile Include="SoundCard.cpp" />
+    <ClCompile Include="MachineLearning\machine_learning.cpp">
+      <Filter>MachineLearning</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IMU.h" />
+    <ClInclude Include="LCD_I2C.h" />
+    <ClInclude Include="LineFollower.h" />
+    <ClInclude Include="Motors.h" />
+    <ClInclude Include="SoundCard.h" />
+    <ClInclude Include="MachineLearning\machine_learning.hpp">
+      <Filter>MachineLearning</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="MachineLearning">
+      <UniqueIdentifier>{c96b437f-e8e7-4c2f-b120-32f33ba178ff}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

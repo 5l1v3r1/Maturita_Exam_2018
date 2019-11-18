@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LineFollower", "LineFollower\LineFollower.vcxproj", "{E674532F-D96F-49D5-B590-CD3F83A3C371}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Release|ARM = Release|ARM
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E674532F-D96F-49D5-B590-CD3F83A3C371}.Debug|ARM.ActiveCfg = Debug|ARM
+		{E674532F-D96F-49D5-B590-CD3F83A3C371}.Debug|ARM.Build.0 = Debug|ARM
+		{E674532F-D96F-49D5-B590-CD3F83A3C371}.Release|ARM.ActiveCfg = Release|ARM
+		{E674532F-D96F-49D5-B590-CD3F83A3C371}.Release|ARM.Build.0 = Release|ARM
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D4F585FE-F95A-46CF-B63D-1BB76DE51771}
+	EndGlobalSection
+EndGlobal
